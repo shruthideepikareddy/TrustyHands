@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -714,7 +717,10 @@
             z-index: 1;
             font-size: 0.9rem;
         }
-        
+        a.btn {
+    text-decoration: none;
+}
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .header-container {
@@ -827,16 +833,16 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="AboutPage.html">About Us</a></li>
-                    <li><a href="ServicesPage.html" class="active">Services</a></li>
-                    <li><a href="HowItWorksPage.html">How It Works</a></li>
-                    <li><a href="ContactUsPage.html">Contact Us</a></li>
-                </ul>
+                <li><a href="research_homepage1.php">Home</a></li>
+                <li><a href="research_aboutUspage1.php">About Us</a></li>
+                <li><a href="research_servicespage1.php" class="active">Services</a></li>
+                <li><a href="research_howItWorkspage1.php">How It Works</a></li>
+                <li><a href="research_contactUspage1.php">Contact Us</a></li>
+            </ul>
             </nav>
             <div class="auth-buttons">
-                <button class="btn btn-outline">Log In</button>
-                <button class="btn btn-primary">Sign Up</button>
+                <a href="research_index.php#signIn" class="btn btn-outline">Log In</a>
+                <a href="research_index.php#signup" class="btn btn-primary">Sign Up</a>
             </div>
         </div>
     </header>
@@ -1005,8 +1011,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+ <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1015,7 +1020,8 @@
                         <i class="fas fa-hands-helping"></i>
                         <span>Trustyhands</span>
                     </div>
-                    <p style="font-size: 0.9rem; max-width: 300px; margin-bottom: 18px; color: var(--text-footer);">Connecting customers with trusted local workers for any task, anytime, anywhere.</p>
+                    <p style="font-size: 0.9rem; max-width: 300px; margin-bottom: 18px; color: var(--text-footer);">
+                        Connecting customers with trusted local workers for any task, anytime, anywhere.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1026,40 +1032,39 @@
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="research_homepage1.php">Home</a></li>
+                        <li><a href="research_aboutUspage1.php">About Us</a></li>
+                        <li><a href="research_servicespage1.php">Services</a></li>
+                        <li><a href="research_howitWorkspage1.php">How it Works</a></li>
+                        <li><a href="research_contactUspage1.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Safety Guidelines</a></li>
-                        <li><a href="#">Worker Resources</a></li>
-                        <li><a href="#">Customer Resources</a></li>
-                        <li><a href="#">Community</a></li>
+                        <li><a href="helpcenter.php">Help Center</a></li>
+                        <li><a href="safety.php">Safety Guidelines</a></li>
+                        <li><a href="worker_resources.php">Worker Resources</a></li>
+                        <li><a href="customer_resources.php">Customer Resources</a></li>
+                        <li><a href="community.php">Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Worker Agreement</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="terms.php">Terms of Service</a></li>
+                        <li><a href="Privacy_Policy.php">Privacy Policy</a></li>
+                        <li><a href="Worker_Agreement.php">Worker Agreement</a></li>
+                        <li><a href="Cookie_Policy.php">Cookie Policy</a></li>
+                        <li><a href="GDPR.php">GDPR Compliance</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Trustyhands. All rights reserved. Premium Service Platform</p>
+                <p>&copy; 2025 Trustyhands. All rights reserved. Premium Service Platform</p>
             </div>
         </div>
     </footer>
-
     <!-- Service Modal -->
     <div class="modal" id="serviceModal">
         <div class="modal-content">

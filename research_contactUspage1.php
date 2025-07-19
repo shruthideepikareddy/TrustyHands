@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -591,7 +594,10 @@
             text-align: center;
             animation: fadeIn 0.5s ease;
         }
-        
+        a.btn {
+    text-decoration: none;
+}
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -673,16 +679,16 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="AboutPage.html">About Us</a></li>
-                    <li><a href="ServicesPage.html">Services</a></li>
-                    <li><a href="HowItWorksPage.html">How It Works</a></li>
-                    <li><a href="ContactUsPage.html" class="active">Contact Us</a></li>
-                </ul>
+                <li><a href="research_homepage1.php">Home</a></li>
+                <li><a href="research_aboutUspage1.php">About Us</a></li>
+                <li><a href="research_servicespage1.php" class="active">Services</a></li>
+                <li><a href="research_howItWorkspage1.php">How It Works</a></li>
+                <li><a href="research_contactUspage1.php">Contact Us</a></li>
+            </ul>
             </nav>
             <div class="auth-buttons">
-                <button class="btn btn-outline">Log In</button>
-                <button class="btn btn-primary">Sign Up</button>
+                <a href="research_index.php#signIn" class="btn btn-outline">Log In</a>
+                <a href="research_index.php#signup" class="btn btn-primary">Sign Up</a>
             </div>
         </div>
     </header>
@@ -699,53 +705,63 @@
     <section class="contact-section">
         <div class="container">
             <div class="contact-container">
-                <div class="contact-form-container">
-                    <div class="contact-card">
-                        <h2>Send Us a Message</h2>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" placeholder="Enter your full name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" placeholder="Enter your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" placeholder="Enter your phone number">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <select id="subject" required>
-                                    <option value="" disabled selected>Select a subject</option>
-                                    <option value="service">Service Inquiry</option>
-                                    <option value="support">Technical Support</option>
-                                    <option value="billing">Billing Question</option>
-                                    <option value="worker">Become a Worker</option>
-                                    <option value="feedback">Feedback/Suggestions</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" placeholder="How can we help you?" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">Send Message</button>
-                        </form>
-                        
-                        <div class="form-success" id="formSuccess">
-                            <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 12px;"></i>
-                            <h3>Message Sent Successfully!</h3>
-                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Replace the existing form section with this code -->
+<div class="contact-form-container">
+    <div class="contact-card">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm" action="research_contactUsBackend.php" method="POST">
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a subject</option>
+                    <option value="service">Service Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="billing">Billing Question</option>
+                    <option value="worker">Become a Worker</option>
+                    <option value="feedback">Feedback/Suggestions</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">Send Message</button>
+        </form>
+        
+        <?php if(isset($_SESSION['form_success'])): ?>
+            <div class="form-success" id="formSuccess" style="display: block;">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 12px;"></i>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+            </div>
+            <?php unset($_SESSION['form_success']); ?>
+        <?php else: ?>
+            <div class="form-success" id="formSuccess">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 12px;"></i>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
                 
                 <div class="contact-info-container">
                     <div class="contact-card">
@@ -926,8 +942,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+ <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -936,7 +951,8 @@
                         <i class="fas fa-hands-helping"></i>
                         <span>Trustyhands</span>
                     </div>
-                    <p style="font-size: 0.9rem; max-width: 300px; margin-bottom: 18px; color: var(--text-footer);">Connecting customers with trusted local workers for any task, anytime, anywhere.</p>
+                    <p style="font-size: 0.9rem; max-width: 300px; margin-bottom: 18px; color: var(--text-footer);">
+                        Connecting customers with trusted local workers for any task, anytime, anywhere.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -947,83 +963,77 @@
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="research_homepage1.php">Home</a></li>
+                        <li><a href="research_aboutUspage1.php">About Us</a></li>
+                        <li><a href="research_servicespage1.php">Services</a></li>
+                        <li><a href="research_howitWorkspage1.php">How it Works</a></li>
+                        <li><a href="research_contactUspage1.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Safety Guidelines</a></li>
-                        <li><a href="#">Worker Resources</a></li>
-                        <li><a href="#">Customer Resources</a></li>
-                        <li><a href="#">Community</a></li>
+                        <li><a href="helpcenter.php">Help Center</a></li>
+                        <li><a href="safety.php">Safety Guidelines</a></li>
+                        <li><a href="worker_resources.php">Worker Resources</a></li>
+                        <li><a href="customer_resources.php">Customer Resources</a></li>
+                        <li><a href="community.php">Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Worker Agreement</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="terms.php">Terms of Service</a></li>
+                        <li><a href="Privacy_Policy.php">Privacy Policy</a></li>
+                        <li><a href="Worker_Agreement.php">Worker Agreement</a></li>
+                        <li><a href="Cookie_Policy.php">Cookie Policy</a></li>
+                        <li><a href="GDPR.php">GDPR Compliance</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Trustyhands. All rights reserved. Premium Service Platform</p>
+                <p>&copy; 2025 Trustyhands. All rights reserved. Premium Service Platform</p>
             </div>
         </div>
     </footer>
-
     <script>
         // Function to toggle FAQ
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const isActive = answer.classList.contains('active');
-            
+
             // Close all open FAQs
             document.querySelectorAll('.faq-answer').forEach(ans => {
                 ans.classList.remove('active');
             });
-            
+
             // Toggle the clicked FAQ
             if (!isActive) {
                 answer.classList.add('active');
             }
         }
         
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            document.getElementById('formSuccess').style.display = 'block';
-            
-            // Reset form after 3 seconds
-            setTimeout(function() {
-                document.getElementById('contactForm').reset();
-                document.getElementById('formSuccess').style.display = 'none';
-            }, 5000);
-        });
-        
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set active navigation
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                if (link.textContent === 'Contact Us') {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        });
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    // Set active navigation
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        if (link.textContent === 'Contact Us') {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    // Auto-hide success message after 5 seconds
+    const successMessage = document.getElementById('formSuccess');
+    if (successMessage.style.display === 'block') {
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
+    }
+});
     </script>
 </body>
 </html>

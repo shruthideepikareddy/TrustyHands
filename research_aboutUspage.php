@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])) {
+    header("Location: research_homepage1.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -487,6 +494,7 @@
             font-size: 0.9rem;
         }
         
+       
         /* Responsive Design */
         @media (max-width: 992px) {
             .header-container {
@@ -557,31 +565,210 @@
                 width: 100%;
             }
         }
+        a{
+            text-decoration:none;
+        }
+        .user-profile-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .profile-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-moss-green), var(--pakistan-green));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .profile-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 220px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .profile-dropdown .user-info {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .profile-dropdown .user-info .info-initials {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--earth-yellow), var(--tigers-eye));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .profile-dropdown .user-info .info-text {
+            line-height: 1.4;
+        }
+        
+        .profile-dropdown .user-info .info-text .name {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .profile-dropdown .user-info .info-text .email {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .profile-dropdown ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+        
+        .profile-dropdown ul li {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .profile-dropdown ul li:hover {
+            background: rgba(96, 108, 56, 0.05);
+        }
+        
+        .profile-dropdown ul li i {
+            color: var(--dark-moss-green);
+            width: 20px;
+        }
+        
+        .profile-dropdown ul li a {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-hands-helping"></i>
-                <span>Trustyhands</span>
+    <div class="container header-container">
+        <div class="logo">
+            <i class="fas fa-hands-helping"></i>
+            <span>Trustyhands</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="research_homepage.php">Home</a></li>
+                <li><a href="research_aboutUspage.php" class="active">About Us</a></li>
+                <li><a href="research_servicespage.php">Services</a></li>
+                <li><a href="research_howItWorkspage.php">How It Works</a></li>
+                <li><a href="research_contactUspage.php">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <!-- MODIFIED: Added profile dropdown -->
+        <div class="user-profile-container">
+            <?php
+            // Get user initials - MODIFIED: Added safety checks
+            $firstName = $_SESSION['firstName'] ?? 'User';  // Default if not set
+            $lastName = $_SESSION['lastName'] ?? '';       // Default empty if not set
+            
+            $name_parts = array_filter([$firstName, $lastName]); // Filter out empty parts
+            $initials = '';
+            
+            foreach ($name_parts as $part) {
+                if (!empty($part)) {
+                    $initials .= strtoupper(substr($part, 0, 1));
+                }
+            }
+            $initials = substr($initials, 0, 2) ?: 'U'; // Default to 'U' if no initials
+            ?>
+            <div class="profile-circle" id="profileToggle">
+                <?php echo $initials; ?>
             </div>
-            <nav>
+            
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="user-info">
+                    <div class="info-initials"><?php echo $initials; ?></div>
+                    <div class="info-text">
+                        <!-- MODIFIED: Use safe variables -->
+                        <div class="name"><?php echo htmlspecialchars("$firstName $lastName"); ?></div>
+                        <div class="email"><?php echo $_SESSION['email']; ?></div>
+                    </div>
+                </div>
+                
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="AboutPage.html" class="active">About Us</a></li>
-                    <li><a href="ServicesPage.html">Services</a></li>
-                    <li><a href="HowItWorksPage.html">How It Works</a></li>
-                    <li><a href="ContactUsPage.html">Contact Us</a></li>
+                    <li>
+                        <a href="research_profilepage.php">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Your Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="research_bookingspage.php">
+                            <i class="fas fa-history"></i>
+                            <span>Bookings History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="research_workhistorypage.php">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Work History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="research_logout.php">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
                 </ul>
-            </nav>
-            <div class="auth-buttons">
-                <button class="btn btn-outline">Log In</button>
-                <button class="btn btn-primary">Sign Up</button>
             </div>
         </div>
-    </header>
+    <?php else: ?>
+        <a href="research_index.php#signIn" class="btn btn-outline">Log In</a>
+        <a href="research_index.php#signup" class="btn btn-primary">Sign Up</a>
+    <?php endif; ?>
+</div> 
+    </div>
+</header>
 
     <!-- About Hero Banner -->
     <section class="about-hero">
@@ -772,6 +959,21 @@
                     this.classList.add('active');
                 });
             });
+        });
+         // NEW: Profile dropdown toggle
+        const profileToggle = document.getElementById('profileToggle');
+        const profileDropdown = document.getElementById('profileDropdown');
+        
+        profileToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!profileDropdown.contains(e.target) && !profileToggle.contains(e.target)) {
+                profileDropdown.classList.remove('active');
+            }
         });
     </script>
 </body>
