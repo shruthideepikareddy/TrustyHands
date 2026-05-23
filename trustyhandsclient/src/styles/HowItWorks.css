@@ -1,0 +1,311 @@
+/* How It Works Page Styles */
+
+/* Hero Section */
+.hiw-hero-section {
+  background: linear-gradient(rgba(40, 54, 24, 0.85), rgba(40, 54, 24, 0.85)),
+    url('https://media.istockphoto.com/id/1412440577/vector/hiring-a-new-member.jpg?s=612x612&w=0&k=20&c=4qK1gAhY5ByiR9r-tGdaI_xL2GcVSmNPRpPj0l5K0QY=');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 70px 0;
+  margin-bottom: 30px;
+}
+
+.hiw-hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hiw-hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* How It Works Section */
+.hiw-section {
+  padding: 50px 0;
+}
+
+.hiw-section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+/* Steps Section */
+.hiw-steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.hiw-process-card {
+  flex: 1;
+  min-width: 300px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+  border: 1px solid rgba(96, 108, 56, 0.1);
+}
+
+.hiw-process-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hiw-process-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(96, 108, 56, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.hiw-process-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.hiw-step-list {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.hiw-step-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed rgba(96, 108, 56, 0.2);
+}
+
+.hiw-step-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hiw-step-number {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.hiw-step-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* Benefits Section */
+.hiw-benefits {
+  background: var(--light-background);
+  padding: 60px 0;
+  border-radius: 14px;
+  margin-bottom: 60px;
+}
+
+.hiw-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.hiw-benefit-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+  border: 1px solid rgba(96, 108, 56, 0.1);
+}
+
+.hiw-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hiw-benefit-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.hiw-benefit-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+/* CTA Section */
+.hiw-cta {
+  padding: 70px 0;
+  background: linear-gradient(135deg, var(--primary), #728c45);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  margin-bottom: 60px;
+}
+
+.hiw-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.hiw-cta p {
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 30px;
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hiw-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* FAQ Section */
+.hiw-faqs {
+  padding: 40px 0;
+  background: rgba(188, 108, 37, 0.05);
+  border-radius: 14px;
+  margin-bottom: 60px;
+}
+
+.hiw-faq-container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.hiw-faq-item {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hiw-faq-question {
+  padding: 15px 20px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.hiw-faq-question:hover {
+  background: #728c45;
+}
+
+.hiw-faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.hiw-faq-question i.rotate {
+  transform: rotate(180deg);
+}
+
+.hiw-faq-answer {
+  padding: 18px;
+  background: var(--white);
+  display: none;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.hiw-faq-answer.active {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hiw-steps-container {
+    flex-direction: column;
+  }
+  .hiw-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hiw-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hiw-hero-section h1 {
+    font-size: 1.8rem;
+  }
+  .hiw-cta h2 {
+    font-size: 1.5rem;
+  }
+  .hiw-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hiw-hero-section h1 {
+    font-size: 1.6rem;
+  }
+  .hiw-process-card {
+    padding: 20px;
+  }
+  .hiw-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hiw-cta-buttons .btn {
+    width: 100%;
+  }
+}

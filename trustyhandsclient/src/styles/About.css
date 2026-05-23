@@ -1,0 +1,237 @@
+/* About Page Styles */
+.about-hero-section {
+  background: linear-gradient(rgba(40, 54, 24, 0.85), rgba(40, 54, 24, 0.85)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 70px 0;
+  margin-bottom: 30px;
+}
+
+.about-hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.about-hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.about-section {
+  padding: 40px 0;
+}
+
+.about-story-content {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.about-story-text {
+  flex: 1;
+}
+
+.about-story-image {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 360px;
+  background: linear-gradient(rgba(40, 54, 24, 0.85), rgba(40, 54, 24, 0.85)),
+    url('https://img.freepik.com/premium-vector/three-women-are-animatedly-discussing-together-sharing-smiles-expressing-their-thoughts-with-enthusiasm-women-talking-customizable-disproportionate-illustration_538213-138696.jpg') center/cover no-repeat;
+}
+
+.about-founders-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.about-founder-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.about-founder-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about-founder-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  object-fit: cover;
+  border: 3px solid var(--light-background);
+}
+
+
+.about-founder-name {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.about-founder-role {
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.about-process-steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.about-process-step {
+  background: rgba(96, 108, 56, 0.05);
+  border-radius: 14px;
+  padding: 25px;
+  width: 23%;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+}
+
+.about-step-number {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.about-step-icon {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.about-step-title {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about-work-with-us {
+  background: linear-gradient(135deg, var(--primary), #728c45);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-work-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-work-options {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-work-option {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 25px;
+  width: 300px;
+  text-align: center;
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+}
+
+.about-work-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px);
+}
+
+.about-work-icon {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: var(--earth-yellow);
+}
+
+@media (max-width: 992px) {
+  .about-story-content {
+    flex-direction: column;
+  }
+
+  .about-story-image {
+    width: 100%;
+    margin-top: 20px;
+    height: 320px;
+  }
+
+  .about-process-step {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-process-step {
+    width: 100%;
+  }
+
+  .about-founders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-section {
+    padding: 50px 0;
+  }
+
+  .about-hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-work-options {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about-work-option {
+    width: 100%;
+  }
+}

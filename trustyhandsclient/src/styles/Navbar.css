@@ -1,0 +1,111 @@
+/* Header / Navbar Styles */
+.navbar-header {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.navbar-logo i {
+  color: var(--accent);
+}
+
+.navbar-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.navbar-nav a:hover {
+  color: var(--primary);
+  background: rgba(96, 108, 56, 0.1);
+}
+
+.navbar-nav a.active {
+  color: var(--primary);
+  background: rgba(96, 108, 56, 0.1);
+  font-weight: 600;
+}
+
+.navbar-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+.navbar-auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .navbar-nav ul {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav a {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .navbar-nav a.active::after {
+    width: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav ul {
+    gap: 5px;
+  }
+
+  .navbar-auth-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,140 @@
+footer {
+  background-color: var(--dark-background);
+  padding: 40px 0 15px;
+  position: relative;
+  margin-top: 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+  color: var(--earth-yellow);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: var(--text-footer);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+  color: var(--earth-yellow);
+  padding-left: 3px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(221, 161, 94, 0.15);
+  border-radius: 50%;
+  transition: var(--transition);
+  font-size: 1rem;
+  color: var(--earth-yellow);
+}
+
+.social-icons a:hover {
+  background-color: var(--earth-yellow);
+  color: var(--dark-background);
+  transform: translateY(-3px);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: var(--text-footer);
+  font-size: 0.9rem;
+}
+
+.contact-item i {
+  color: var(--earth-yellow);
+  margin-top: 4px;
+}
+
+.footer-address-text {
+  line-height: 1.6;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-footer);
+  position: relative;
+  z-index: 1;
+  font-size: 0.9rem;
+}
+
+.copyright p {
+  margin-bottom: 10px;
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.legal-btn {
+  background: none;
+  border: none;
+  color: var(--earth-yellow);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: var(--transition);
+  padding: 0;
+  font-family: inherit;
+}
+
+.legal-btn:hover {
+  opacity: 0.8;
+  color: rgba(221, 161, 94, 0.8);
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .legal-links {
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .legal-btn {
+    font-size: 0.85rem;
+  }
+}
